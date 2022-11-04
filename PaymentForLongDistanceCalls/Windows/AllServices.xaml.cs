@@ -24,11 +24,13 @@ namespace PaymentForLongDistanceCalls.Windows
     public partial class AllServices : Window
     {
         CallsEntities db = new CallsEntities();
+        private int index = 0;
 
         public AllServices()
         {
             InitializeComponent();
             Get();
+            GetComboBox();
         }
 
         private void Get()
@@ -38,6 +40,14 @@ namespace PaymentForLongDistanceCalls.Windows
             orderby service.ServiceId
             select new { service.Date, service.City, service.OneMinuteCost, service.SaleCost };
             dataGrid.ItemsSource = query.ToList();
+        }
+
+        private void GetComboBox()
+        {
+            foreach (Service s in db.Service)
+            {
+                comboBox.Items.Insert(index, s.City);
+            }
         }
 
         private void RefreshButton_Click(object sender, RoutedEventArgs e)
@@ -54,6 +64,37 @@ namespace PaymentForLongDistanceCalls.Windows
 
         private void SaveToPDF_Click(object sender, RoutedEventArgs e)
         {
+        }
+
+        private void EdeteButton_Click(object sender, RoutedEventArgs e)
+        {
+            var services = db.Service.ToList();
+            var selected = comboBox.SelectedItem.ToString();
+            foreach (Service s in services)
+            {
+                if (selected == s.City)
+                {
+                    s.Date = DateTime.Parse(DateTB.Text);
+                    s.City = CityTB.Text;
+                    s.OneMinuteCost = Int32.Parse(OneMinuteCostTB.Text);
+                    s.SaleCost = Int32.Parse(SaleCostTB.Text);
+                    db.SaveChanges();
+                    MessageBox.Show("Обновлено!");
+                }
+            }
+        }
+
+        private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var services = db.Service.ToList();
+            var selected = comboBox.SelectedItem.ToString();
+            foreach (Service s in services)
+            {
+                DateTB.Text = s.Date.ToString();
+                CityTB.Text = s.City;
+                OneMinuteCostTB.Text = s.OneMinuteCost.ToString();
+                SaleCostTB.Text = s.SaleCost.ToString();
+            }
         }
     }
 }

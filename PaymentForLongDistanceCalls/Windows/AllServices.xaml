@@ -5,13 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PaymentForLongDistanceCalls.Windows"
         mc:Ignorable="d"
-        Title="AllServices" Height="450" Width="800" MinHeight="450" MinWidth="800">
+        Title="AllServices" Height="700" Width="800" MinHeight="700" MinWidth="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="6*"></RowDefinition>
+            <RowDefinition Height="5*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="5*"></RowDefinition>
         </Grid.RowDefinitions>
         <Button Grid.Row="0" Margin="20 0 0 0" Width="200" Height="20" HorizontalAlignment="Left" x:Name="Menu" Click="Menu_Click">Главное меню</Button>
         <DataGrid Grid.Row="1" x:Name="dataGrid"></DataGrid>
@@ -20,8 +21,23 @@
             <Button Margin="0 0 20 0" HorizontalAlignment="Right" Width="200" Height="20" x:Name="SaveToPDF" Click="SaveToPDF_Click">Сохранить в PFD</Button>
         </DockPanel>
         <DockPanel Grid.Row="3">
-            <Label Margin="20 0 0 0" VerticalAlignment="Center" >Выберите услугу для редактирования</Label>
-            <ComboBox Margin="0 0 20 0" Width="200" Height="20" HorizontalAlignment="Right"></ComboBox>
+            <Label Margin="20 0 0 0" VerticalAlignment="Center" >Выберите город услуги для редактирования</Label>
+            <ComboBox x:Name="comboBox" Margin="0 0 20 0" Width="200" Height="20" HorizontalAlignment="Right" SelectionChanged="comboBox_SelectionChanged"></ComboBox>
         </DockPanel>
+        <StackPanel Grid.Row="4" Background="Aquamarine">
+            <Label HorizontalAlignment="Center">Дата</Label>
+            <TextBox HorizontalAlignment="Center" Width="200" x:Name="DateTB"></TextBox>
+
+            <Label HorizontalAlignment="Center">Город</Label>
+            <TextBox HorizontalAlignment="Center" Width="200" x:Name="CityTB"></TextBox>
+
+            <Label HorizontalAlignment="Center">Одна минута разговора</Label>
+            <TextBox HorizontalAlignment="Center" Width="200" x:Name="OneMinuteCostTB"></TextBox>
+
+            <Label HorizontalAlignment="Center">Льготная стоимсоть</Label>
+            <TextBox HorizontalAlignment="Center" Width="200" x:Name="SaleCostTB"></TextBox>
+
+            <Button HorizontalAlignment="Center" Width="200" Margin="0 20 0 0" x:Name="EdeteButton" Click="EdeteButton_Click">Редактировать</Button>
+        </StackPanel>
     </Grid>
 </Window>

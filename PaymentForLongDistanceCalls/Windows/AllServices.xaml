@@ -1,0 +1,27 @@
+﻿<Window x:Class="PaymentForLongDistanceCalls.Windows.AllServices"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PaymentForLongDistanceCalls.Windows"
+        mc:Ignorable="d"
+        Title="AllServices" Height="450" Width="800" MinHeight="450" MinWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="6*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Button Grid.Row="0" Margin="20 0 0 0" Width="200" Height="20" HorizontalAlignment="Left" x:Name="Menu" Click="Menu_Click">Главное меню</Button>
+        <DataGrid Grid.Row="1" x:Name="dataGrid"></DataGrid>
+        <DockPanel Grid.Row="2" Background="CadetBlue">
+            <Button Margin="20 0 0 0" HorizontalAlignment="Left" x:Name="RefreshButton" Width="200" Height="20" Click="RefreshButton_Click">Обновить таблицу</Button>
+            <Button Margin="0 0 20 0" HorizontalAlignment="Right" Width="200" Height="20" x:Name="SaveToPDF" Click="SaveToPDF_Click">Сохранить в PFD</Button>
+        </DockPanel>
+        <DockPanel Grid.Row="3">
+            <Label Margin="20 0 0 0" VerticalAlignment="Center" >Выберите услугу для редактирования</Label>
+            <ComboBox Margin="0 0 20 0" Width="200" Height="20" HorizontalAlignment="Right"></ComboBox>
+        </DockPanel>
+    </Grid>
+</Window>

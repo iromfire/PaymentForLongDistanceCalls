@@ -1,0 +1,35 @@
+﻿<Window x:Class="PaymentForLongDistanceCalls.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PaymentForLongDistanceCalls"
+        mc:Ignorable="d"
+        Title="AddClient" Height="350" Width="450" MinHeight="350" MinWidth="450">
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="5*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">Добавить нового клиента</Label>
+
+            <StackPanel Grid.Row="1">
+                <Label HorizontalAlignment="Center">Номер телефона</Label>
+                <TextBox HorizontalAlignment="Center" Width="200" x:Name="PhoneNumberTB"></TextBox>
+
+                <Label HorizontalAlignment="Center">ФИО</Label>
+                <TextBox HorizontalAlignment="Center" Width="200" x:Name="FullNameTB"></TextBox>
+
+                <Label HorizontalAlignment="Center">Адрес</Label>
+                <TextBox HorizontalAlignment="Center" Width="200" x:Name="AdressTB"></TextBox>
+
+                <Label HorizontalAlignment="Center">Дата регистрации</Label>
+                <TextBox HorizontalAlignment="Center" Width="200" x:Name="RegistrationDateTB"></TextBox>
+
+                <Button HorizontalAlignment="Center" Width="200" Margin="0 40 0 0" x:Name="AddButton" Click="AddButton_Click">Добавить</Button>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
